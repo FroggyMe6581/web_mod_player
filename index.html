@@ -1,0 +1,99 @@
+<html>
+	<head>
+      <title>FroggyMe's Web Amiga MOD Music Player</title>
+      <meta name=description content="A web-based Amiga Protracker MOD music player using JavaScript and PHP">
+		<meta name=keywords content="web audio api, web audio, webaudio, music, synthesis, audio, javascript, php, amiga, MOD, module, commodore, protracker, soundtracker, noisetracker, demo, demoscene, tracker, compo, demoparty, bbs, unix, public access, unix system, dec alpha, SDF, Super Dimension Fortress">
+	</head>
+   <body>
+	<h1>Web-based Amiga Protracker MOD Player [beta]</h1>
+	<p>
+		Hello <b>Internet</b> visitor, surfing the waves of the <b>Information Super-highway</b>.  You have stumbled upon my browser-based <b>Amiga Protracker Module</b> player on the <b>World-Wide Web</b>!
+	</p>
+	<p>
+		The audio you are about to hear is <b>rendered live on-the-fly</b>.  This is a <b>performance</b> and <b>not a recording</b>.  Your device is <b>synthesizing in real-time</b>.
+	</p>
+	<p>
+		The music module files used in this player were mostly created in the late 1980s through the mid 1990s, and play back on the Commodore Amiga home computer that first debut in 1985.
+		It had a really neat sound chip called Paula that could play up to four digital samples at once.  It was capable of this because it had four independent voice channels, 
+		kind of like if you had four independent CD players going into a mixer.  Each channel could have its sample rate chosen independently, so the samples could achieve different pitches
+		by adjusting the playback frequency.  In other words, the Commodore Amiga was basically a Fairlight CMI that could also do video editing and compositing, word processing, 
+		and really fun gaming, all for a fraction of the price! (of a Fairlight, that is, and actually, less expensive than less capable computers as well.)
+	</p>
+	<p>
+		Songs that are represented well with my MOD player include 
+		<a href="mod_player.php?filename=macabra.mod">Macabra</a>, 
+		<a href="mod_player.php?filename=mrs_beanbag_-_cosmic_brain.mod">Cosmic Brain</a>, 
+		<a href="mod_player.php?filename=backfromblue.mod">Back From Blue</a>, 
+		<a href="mod_player.php?filename=You_Must_Learn.mod">You Must Learn</a>, 
+		<a href="mod_player.php?filename=nes-tea-peach.mod">Nes-Tea Peach</a>, 
+		<a href="mod_player.php?filename=funknjam.mod">Funk'n Jam</a>, 
+		<a href="mod_player.php?filename=mystified.mod">Mystified</a>, 
+		<a href="mod_player.php?filename=stoop-it.mod">Stoop-It</a>, and my favorite, 
+		<a href="mod_player.php?filename=trans_atlantic.mod">Trans Atlantic</a>.
+      <br>I suggest starting with those songs.
+      <br>People really like the song <a href="mod_player.php?filename=enigma.mod">Enigma</a>, even though the rendering is not completely accurate.
+      <br>
+      <br> I haven't yet implemented sample looping <b>[<i>Done</i>]</b>, so 
+		samples that use looping are short, and don't play continuously like they should. [<i>Now they sound sustained.</i>]  Also, I haven't yet implemented sample fine-tuning <b>[<i>Done</i>]</b>, so if the song sounds out of tune, it's my player's fault and not the
+		fault of the module composer. [<i>Now Mystified and others are in tune!</i>]  Neither of these [<i>were</i>] hard to implement, luckily!  I also haven't implemented portamento or pitch bending, so notes that are supposed to slide just sit at their initial value.
+		This will be harder to implement.  On the immediate <i>TODO</i> list, I will soon implement the effects that cause volume decay.  Songs that have instruments that just stay loud will greatly benefit.
+	</p>
+	<p>
+		This MOD player was written from scratch, and uses both php and JavaScript.  The php program on the server-side reads the MOD file and populates the HTML page.  Then JavaScript embedded into
+		the HTML on the client-side reads the sample and track data from the Document Object Model (DOM) of the webpage to know what to play.
+		It resamples on-the-fly, and outputs the audio via the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">Web Audio API</a>.  
+		I will make a tutorial on how I used Web Audio for continuous audio, as the official MDN documentation is lacking in that
+		regard.  But pretty much I used <a href="https://developer.mozilla.org/en-US/docs/Archive/Misc_top_level/Creating_a_Web_based_tone_generator">this orphaned page</a> 
+		that used to be part of the documentation for <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement">HTMLAudioElement</a>, before the moz functions were deprecated.
+	</p>
+	<p>
+		The only references used to make this were these three text files from the early 90s, time-stamped from 1993 and 1994:
+		<br><a href="Modfil12.txt">MODFIL12.TXT</a>
+		<br><a href="Mod-form.txt">MOD-FORM.TXT</a>
+		<br><a href="Mod-info.txt">MOD-INFO.TXT</a>
+      <br>
+		<br>The resampling function was written from scratch using my own knowledge of how resampling works, and knowing what values to use for interpolation and decimation came from my own intuition.
+		<br>Both the Commodore Amiga and the Gravis Ultrasound could play samples back at different rates by merely changing the playback frequency in hardware.
+		<br>I also used the MDN reference on the Web Audio API.
+	</p>
+	<p>
+		At first it was reported to me that <b>there was no sound on iOS devices</b>, but putting <b>the start-button fixed playback for users of iOS devices</b>.
+	</p>
+	<p>
+		Thank you to my beta testers: G.S., S.G., J.S., G."S.D."
+	</p>
+	<p>
+		<span style="color:green"><b>Verified browsers</b> are: <b>Mozilla Firefox</b> under <b>GNU/Linux</b>, <b>Edge</b> under <b>Windows</b>, <b>Chrome</b> under <b>Android</b>, <b>Safari</b> under <b>OSX</b>.</span>
+		<br><span style="color:red">It no longer works for <b>Safari</b> under <b>iOS</b>, and I do not have a device to troubleshoot the issue.</span>
+	</p>
+	<p>
+		<b>CLICK THE FOLLOWING LINK TO OPEN THE PLAYER:</b>
+	</p>
+	<center>
+		<a href="mod_player.php"><b>Web MOD Player</b><br><img src="Protracker_3.62_screenshot.png"></a>
+		<br>
+		<i>Protracker on the Commodore Amiga</i>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<i>Hosting for this site is provided by</i>
+		<p><a target=new href=http://sdf.org><img src=http://sdf.org/sdfbanner.png><p><b>The SDF Public Access UNIX System</b></a>
+		<br>
+	</center>
+	<i>(c) 2020 pwh</i>
+   </body>
+</html>
+
